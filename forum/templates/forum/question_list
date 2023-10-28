@@ -1,1 +1,3 @@
-<h1>sssssssss</h1>
+{% for object in data %}
+<a href="/questions/{{object.id}}">{{object.question}} - {{object.author}} - {{object.created_at}}</a>
+{% endfor %}

@@ -22,8 +22,8 @@ from forum.views import question_list , question_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', question_list),
-    path('/question_detail/<int:question_id>', question_detail),
+    path('questions/', question_list),
+    path('questions/<int:question_id>', question_detail),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

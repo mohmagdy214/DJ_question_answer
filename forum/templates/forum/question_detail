@@ -1,2 +1,4 @@
-<h1>sdaads
-</h1>
+<h1>{{question.question}}</h1>
+<h1>{{question.content}}</h1>
+<h1>{{question.author}}</h1>
+<h1>{{question.created_at}}</h1>

@@ -9,7 +9,7 @@ def question_list(request):
 
 
 def question_detail(request,question_id):
-    question = Question.objects.filter(id=question_id)
+    question = Question.objects.get(id=question_id)
     
 
 
