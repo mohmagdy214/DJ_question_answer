@@ -10,11 +10,11 @@ def question_list(request):
 
 def question_detail(request,question_id):
     question = Question.objects.get(id=question_id)
+    answers = Answer.objects.filter(question=question)
     
 
 
-
-    return render(request, 'forum/question_detail', {'question':question})
+    return render(request, 'forum/question_detail', {'question':question , 'answers':answers})
 
 
 

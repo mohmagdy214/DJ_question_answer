@@ -2,3 +2,9 @@
 <h1>{{question.content}}</h1>
 <h1>{{question.author}}</h1>
 <h1>{{question.created_at}}</h1>
+
+<ul>
+{% for object in  answers %}
+<li>{{object.author}} - {{object.answer}} - {{object.created_at}}</li>
+{% endfor %}
+</ul>
