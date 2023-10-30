@@ -2,6 +2,6 @@ from django import forms
 from .models import Answer
 
 class AnswerForm(forms.ModelForm):
-    class meta:
+    class Meta:
         model = Answer
         fields = ['answer']
