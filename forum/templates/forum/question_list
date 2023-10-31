@@ -1,3 +1,5 @@
+{% load django_bootstrap5 %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,7 +22,7 @@
     <div class="container mt-5">
         {% for object in questions %}
         <div class="alert alert-info" role="alert">
-        <h6><a href="/questions/{{object.id}}">{{object.question}} - {{object.author}} - {{object.created_at}}</a></h6>
+        <h6 class="d-flex justify-content-center"><a class="link-offset-2 link-underline link-underline-opacity-0" href="/questions/{{object.id}}">{{object.question}} - (by : {{object.author}} at : {{object.created_at}})</a></h6>
         </div>
         {% endfor %}
     </div>
