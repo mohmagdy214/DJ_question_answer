@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .models import Question , Answer
-from .forms import AnswerForm
+from .forms import AnswerForm , QuestionForm
 # Create your views here.
 
 def question_list(request):
@@ -12,6 +12,20 @@ def question_list(request):
             search = search.filter(question__icontains=questions)
 
     return render(request, 'forum/question_list', {'questions':search})
+
+
+
+def question_new(request):
+    if request.method == 'POST':
+        form_q = QuestionForm(request.POST)
+        if form_q.is_valid():
+            myform_q = form_q.save(commit=False)
+            myform_q.author = request.user
+            myform_q.save()
+            return redirect('/questions')
+    else:
+        form_q = QuestionForm()
+    return render(request , 'forum/question_new' , {'form_q':form_q})
 
 
 

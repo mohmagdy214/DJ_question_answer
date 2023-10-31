@@ -18,7 +18,7 @@
         </form>
     </div>
     </nav>
-  <div class="container my-4">
+  <div class="container my-5">
     <h3>{{question.question}}</h3>
     <p>Written by : {{question.author}} | at {{question.created_at}}</p>
     <strong>{{question.content}}</strong>
@@ -28,7 +28,8 @@
 
       <ul>
       {% for object in  answers %}
-      <li><strong> {{object.answer}} </strong>
+      <li>
+      <strong> {{object.answer}} </strong>
       <p>"Written by : {{object.author}}  - at {{object.created_at}}"</p>
       </li>
       {% endfor %}

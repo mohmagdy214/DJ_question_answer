@@ -19,18 +19,13 @@
   </div>
   </nav>
 
-<div class="d-flex justify-content-center m-3">
-<a href="/questions/question_new"><button type="button" class="btn btn-outline-info ">Add New Question</button></a>
-</div>
-
     <div class="container my-5">
-    
-        {% for object in questions %}
-        <div class="alert alert-info" role="alert">
-        <h6 class="d-flex justify-content-center"><a class="link-offset-2 link-underline link-underline-opacity-0" href="/questions/{{object.id}}">{{object.question}} <br> (by : {{object.author}} at : {{object.created_at}})</a></h6>
-        </div>
-        {% endfor %}
-
+      <h5>Add your Question</h5>
+      <form method="post">
+          {% csrf_token %}
+          {% bootstrap_form form_q %}
+          {% bootstrap_button button_type="submit" content="Add Question" %}
+      </form>
     </div>
     
 
