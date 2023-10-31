@@ -9,19 +9,18 @@
   <body>
   <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <a class="navbar-brand" href="/questions">ASK</a>
+    <form method="get" class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" name="search_name">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
   </nav>
 
     <div class="container mt-5">
-        {% for object in data %}
+        {% for object in questions %}
         <div class="alert alert-info" role="alert">
-        <a class="ps-5" href="/questions/{{object.id}}">{{object.question}} - {{object.author}} - {{object.created_at}}</a>
-        <br>
+        <h6><a href="/questions/{{object.id}}">{{object.question}} - {{object.author}} - {{object.created_at}}</a></h6>
         </div>
         {% endfor %}
     </div>
