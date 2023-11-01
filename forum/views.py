@@ -1,6 +1,8 @@
 from django.shortcuts import render , redirect
 from .models import Question , Answer
-from .forms import AnswerForm , QuestionForm
+from .forms import AnswerForm , QuestionForm 
+from django.views.generic import UpdateView, DeleteView
+
 # Create your views here.
 
 def question_list(request):
@@ -11,7 +13,7 @@ def question_list(request):
         if questions:
             search = search.filter(question__icontains=questions)
 
-    return render(request, 'forum/question_list', {'questions':search})
+    return render(request, 'forum/question_list.html', {'questions':search})
 
 
 
@@ -25,7 +27,7 @@ def question_new(request):
             return redirect('/questions')
     else:
         form_q = QuestionForm()
-    return render(request , 'forum/question_new' , {'form_q':form_q})
+    return render(request , 'forum/question_new.html' , {'form_q':form_q})
 
 
 
@@ -46,11 +48,18 @@ def question_detail(request,question_id):
             myform.save()
     else:
         form = AnswerForm()
-
-
-    return render(request, 'forum/question_detail', {'question':question , 'answers':search2,'form':form})
-
+    return render(request, 'forum/question_detail.html', {'question':question , 'answers':search2,'form':form})
 
 
 
 
+class QuestionUpdate(UpdateView):
+    model = Question
+    fields = ['question','content','tags','created_at','author']
+    success_url = '/questions'
+    template_name = 'forum/question_edit.html'
+
+
+class QuestionDelete(DeleteView):
+    model = Question    
+    success_url = '/questions'

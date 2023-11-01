@@ -18,13 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from forum.views import question_list , question_detail , question_new
+from forum.views import question_list , question_detail , question_new , QuestionUpdate , QuestionDelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('questions/', question_list),
     path('questions/<int:question_id>', question_detail),
     path('questions/question_new', question_new),
+    path('questions/question_edit/<int:pk>', QuestionUpdate.as_view()),
+    path('questions/question_delete/<int:pk>', QuestionDelete.as_view()),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

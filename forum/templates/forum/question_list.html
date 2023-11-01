@@ -27,7 +27,7 @@
     
         {% for object in questions %}
         <div class="alert alert-info" role="alert">
-        <h6 class="d-flex justify-content-center"><a class="link-offset-2 link-underline link-underline-opacity-0" href="/questions/{{object.id}}">{{object.question}} <br> (by : {{object.author}} at : {{object.created_at}})</a></h6>
+        <h6 class="d-flex justify-content-center"><a class="link-offset-2 link-underline link-underline-opacity-0" href="/questions/{{object.id}}">{{object.question}} <br> (by : {{object.author}} at : {{object.created_at}})<a href="/questions/question_edit"><button type="button" class="btn btn-outline-info ">Edit Question</button></a></a></h6>
         </div>
         {% endfor %}
 
