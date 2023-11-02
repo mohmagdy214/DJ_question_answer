@@ -26,7 +26,7 @@ urlpatterns = [
     path('questions/<int:pk>', question_detail),
     path('questions/question_new', question_new),
     path('questions/question_edit/<int:pk>', QuestionUpdate.as_view()),
-    path('questions/question_delete/<int:pk>', QuestionDelete.as_view()),
+    path('questions/question_confirm_delete/<int:pk>', QuestionDelete.as_view()),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
