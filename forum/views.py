@@ -31,8 +31,8 @@ def question_new(request):
 
 
 
-def question_detail(request,question_id):
-    question = Question.objects.get(id=question_id)
+def question_detail(request,pk):
+    question = Question.objects.get(id=pk)
     search2 = Answer.objects.filter(question=question)
     answers = None
     if 'search_name2' in request.GET:

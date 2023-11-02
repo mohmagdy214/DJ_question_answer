@@ -23,7 +23,7 @@ from forum.views import question_list , question_detail , question_new , Questio
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('questions/', question_list),
-    path('questions/<int:question_id>', question_detail),
+    path('questions/<int:pk>', question_detail),
     path('questions/question_new', question_new),
     path('questions/question_edit/<int:pk>', QuestionUpdate.as_view()),
     path('questions/question_delete/<int:pk>', QuestionDelete.as_view()),
