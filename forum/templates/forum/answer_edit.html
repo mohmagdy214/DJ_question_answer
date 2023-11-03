@@ -19,26 +19,13 @@
   </div>
   </nav>
 
-<div class="d-flex justify-content-center m-3">
-<a href="/questions/question_new"><button type="button" class="btn btn-outline-secondary ">Add New Question</button></a>
-</div>
-
     <div class="container my-5">
-    
-        {% for object in questions %}
-          <div class="alert alert-info" role="alert">
-          <h6 class="d-flex justify-content-center">
-          <a class="link-offset-2 link-underline link-underline-opacity-0" href="/questions/{{object.id}}">{{object.question}} 
-          <br> (by : {{object.author}} at : {{object.created_at}})
-          <a href="/questions/question_edit/{{object.id}}">
-          <button type="button" class="btn btn-outline-info ">Edit Question</button>
-          </a>
-          <a href="/questions/question_confirm_delete/{{object.id}}"><button type="button" class="btn btn-outline-danger ">Delete Question</button></a>
-          </a>
-          </h6>
-          </div>
-        {% endfor %}
-
+      <h5>Edit Answer</h5>
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Edit Answer" %}
+        </form>
     </div>
     
 
