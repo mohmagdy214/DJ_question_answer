@@ -30,10 +30,16 @@
           <h6 class="d-flex justify-content-center">
           <a class="link-offset-2 link-underline link-underline-opacity-0" href="/questions/{{object.id}}">{{object.question}} 
           <br> (by : {{object.author}} at : {{object.created_at}})
+
+          <div class="mx-5">
           <a href="/questions/question_edit/{{object.id}}">
           <button type="button" class="btn btn-outline-info ">Edit Question</button>
           </a>
-          <a href="/questions/question_confirm_delete/{{object.id}}"><button type="button" class="btn btn-outline-danger ">Delete Question</button></a>
+          <a href="/questions/question_confirm_delete/{{object.id}}">
+          <button type="button" class="btn btn-outline-danger ">Delete Question</button>
+          </a>
+          </div>
+
           </a>
           </h6>
           </div>

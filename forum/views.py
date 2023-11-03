@@ -68,10 +68,10 @@ class QuestionDelete(DeleteView):
 class AnswerUpdate(UpdateView):
     model = Answer
     fields = ['answer']
-    success_url = '/questions/questions_detail.html'
+    success_url = '/questions'
     template_name = 'forum/answer_edit.html'
 
 
 class AnswerDelete(DeleteView):
     model = Answer    
-    success_url = '/questions/questions_detail.html'
+    success_url = '/questions'
