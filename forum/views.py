@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect
 from .models import Question , Answer
 from .forms import AnswerForm , QuestionForm 
 from django.views.generic import UpdateView, DeleteView
-
+from django.urls import reverse_lazy
 # Create your views here.
 
 def question_list(request):
@@ -68,10 +68,12 @@ class QuestionDelete(DeleteView):
 class AnswerUpdate(UpdateView):
     model = Answer
     fields = ['answer']
-    success_url = '/questions'
     template_name = 'forum/answer_edit.html'
-
+    success_url = '/questions'
+    # def get_success_url(self):
+    #     return reverse_lazy('answer_update', kwargs={'pk': self.object.pk})
 
 class AnswerDelete(DeleteView):
     model = Answer    
     success_url = '/questions'
+
